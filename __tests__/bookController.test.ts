@@ -1,7 +1,7 @@
-import { getAllBooks } from "../src/controllers/bookController";
+import { getAllBooks } from '../src/controllers/bookController';
 
-describe("getAllBooks", () => {
-  it("should respond with a list of books", () => {
+describe('getAllBooks', () => {
+  it('should respond with a list of books', () => {
     const mockResponse: any = {
       json: jest.fn().mockReturnThis(),
       status: jest.fn().mockReturnThis(),
