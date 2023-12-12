@@ -2,19 +2,19 @@
 import cors from "cors";
 import "dotenv/config";
 
-import express, { Express, Request, Response } from "express";
+import express, { Express } from "express";
 import { options } from "./cors.config";
+import bookRoutes from "./routes/bookRoutes";
 
 const app: Express = express();
-const port = process.env.PORT;
+const PORT = process.env.PORT;
 
 app.use(cors(options));
 app.use(express.json());
+app.use("/books", bookRoutes);
 
-app.get("/products/:id", function (req: Request, res: Response) {
-  res.json({ msg: "This is CORS-enabled for localhost:3000!" });
+app.listen(PORT, function () {
+  console.log(`CORS-enabled web server listening on port ${PORT}`);
 });
 
-app.listen(port, function () {
-  console.log(`CORS-enabled web server listening on port ${port}`);
-});
+export default app;
