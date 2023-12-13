@@ -1,25 +1,28 @@
-import { Response } from 'express';
-
-// Example book data
-const books = [
-  { id: 1, title: 'Book 1', author: 'Author 1' },
-  { id: 2, title: 'Book 2', author: 'Author 2' },
-  { id: 3, title: 'Book 3', author: 'Author 3' },
-];
+import { Request, Response } from 'express';
+import Book from '../models/book';
 
 // Controller function to get all books
-export const getAllBooks = (res: Response): void => {
+export const getAllBooks = async (req: Request, res: Response) => {
   try {
-    // Simulate fetching data from a database
+    const books = await Book.find();
     res.status(200).json(books);
   } catch (error) {
     res.status(500).json({ message: 'Error retrieving books' });
   }
 };
 
-export const getBookById = (): void => {};
+export const getBookById = async () => {};
 
-export const createBook = (): void => {};
+export const createBook = async (req: Request, res: Response) => {
+  const { title, author } = req.body;
+
+  try {
+    const newBook = await Book.create({ title, author });
+    res.status(201).json(newBook);
+  } catch (error) {
+    res.status(500).json({ message: 'Error creating book', error });
+  }
+};
 
 export const updateBookById = (): void => {};
 

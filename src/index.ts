@@ -3,12 +3,17 @@ import cors from 'cors';
 import 'dotenv/config';
 
 import express, { Express } from 'express';
+import { connectToMongoDB } from './config/mongo';
 import { options } from './cors.config';
 import bookRoutes from './routes/bookRoutes';
 
 const app: Express = express();
 const PORT = process.env.PORT;
 
+// Database
+connectToMongoDB();
+
+// Api Endpoints
 app.use(cors(options));
 app.use(express.json());
 app.use('/books', bookRoutes);
