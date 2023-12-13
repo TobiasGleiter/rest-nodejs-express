@@ -1,4 +1,4 @@
-import { Response } from 'express';
+import { Request, Response } from 'express';
 
 // Example book data
 const books = [
@@ -18,3 +18,11 @@ export const getAllBooks = (res: Response): void => {
 };
 
 export const getBookById = () => {};
+
+export const createBook = (req: Request): void => {
+  console.log(req);
+};
+
+export const updateBookById = () => {};
+
+export const deleteBookById = () => {};
