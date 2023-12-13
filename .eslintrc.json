@@ -4,8 +4,10 @@
   "parserOptions": { "ecmaVersion": 2018, "sourceType": "module" },
   "rules": {
     "no-unused-vars": [1, { "args": "after-used", "argsIgnorePattern": "^_" }], // underscore variables when they are unsued but going to be used
+    // curently dont know how to fix them:
     "import/extensions": "warn",
     "import/no-unresolved": "warn",
-    "prefer-destructuring": "warn"
+    "prefer-destructuring": "warn",
+    "comma-dangle": "warn"
   }
 }
