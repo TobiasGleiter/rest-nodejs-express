@@ -6,13 +6,24 @@
     "airbnb-base"
   ],
   "plugins": ["prettier"],
-  "parserOptions": { "ecmaVersion": "ESNext", "sourceType": "module" },
+  "parserOptions": {
+    "ecmaVersion": "ESNext",
+    "sourceType": "module",
+    "project": "./tsconfig.json"
+  },
   "rules": {
     "no-unused-vars": [1, { "args": "after-used", "argsIgnorePattern": "^_" }], // underscore variables when they are unsued but going to be used
     // curently dont know how to fix them:
-    "import/extensions": "warn",
+    "import/extensions": "off",
     "import/no-unresolved": "warn",
     "prefer-destructuring": "warn",
     "comma-dangle": "warn"
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
+    }
   }
 }
