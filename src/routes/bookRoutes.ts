@@ -1,12 +1,35 @@
 import express, { Router } from 'express';
-import * as bookController from '../controllers/bookController';
+import {
+  createBook,
+  deleteBookById,
+  getAllBooks,
+  getBookById,
+  updateBookById,
+} from '../controllers/bookController';
+import {
+  handleBookHasUnexpectedFields,
+  validateIfBookHasError,
+} from '../middlewares/validationBook';
+import checkBookSchema from '../validation/validationBook';
 
 const router: Router = express.Router();
 
-router.get('/', bookController.getAllBooks);
-router.get('/:id', bookController.getBookById);
-router.post('/', bookController.createBook);
-router.put('/:id', bookController.updateBookById);
-router.delete('/:id', bookController.deleteBookById);
+router.get('/', getAllBooks);
+router.get('/:id', getBookById);
+router.post(
+  '/',
+  handleBookHasUnexpectedFields,
+  checkBookSchema,
+  validateIfBookHasError,
+  createBook,
+);
+router.put(
+  '/:id',
+  handleBookHasUnexpectedFields,
+  checkBookSchema,
+  validateIfBookHasError,
+  updateBookById,
+);
+router.delete('/:id', deleteBookById);
 
 export default router;

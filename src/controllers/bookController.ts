@@ -46,7 +46,7 @@ export const updateBookById = async (req: Request, res: Response) => {
     const updatedBook = await Book.findByIdAndUpdate(
       id,
       { title, author },
-      { new: true }
+      { new: true },
     );
     res.status(201).json(updatedBook);
   } catch (error) {

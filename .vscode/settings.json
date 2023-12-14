@@ -6,5 +6,6 @@
     "source.fixAll": "explicit",
     "source.organizeImports": "explicit"
   },
-  "prettier.trailingComma": "none"
+  "prettier.trailingComma": "all",
+  "prettier.useTabs": false
 }
