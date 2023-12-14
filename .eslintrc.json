@@ -16,8 +16,7 @@
     // curently dont know how to fix them:
     "import/extensions": "off",
     "import/no-unresolved": "warn",
-    "prefer-destructuring": "warn",
-    "comma-dangle": "warn"
+    "prefer-destructuring": "warn"
   },
   "settings": {
     "import/resolver": {
