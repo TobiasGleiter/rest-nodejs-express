@@ -13,9 +13,9 @@ const PORT = process.env.PORT;
 // Database
 connectToMongoDB();
 
-// Api Endpoints
 app.use(cors(options));
 app.use(express.json());
+// Api Endpoints
 app.use('/books', bookRoutes);
 
 app.listen(PORT, function () {
